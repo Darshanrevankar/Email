@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .valid {
+            color: white;
+        }
+        .invalid {
+            color: white;
+        }
+        .blob1 {
+            position: absolute;
+            bottom: 50%;
+            left: 32%;
+            animation: blobAnimation1 6s infinite;
+            z-index: 1;
+        }
+        .blob2 {
+            position: absolute;
+            bottom: 36%;
+            right: 32%;
+            animation: blobAnimation2 5s infinite;
+            z-index: 1;
+        }
+        @keyframes blobAnimation1 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes blobAnimation2 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 30px); }
+            100% { transform: translate(0, 0); }
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if valid %}
+            <h2 class="valid">Email is Valid</h2>
+        {% else %}
+            <h2 class="invalid">Email is Invalid</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
